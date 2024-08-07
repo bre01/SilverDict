@@ -82,6 +82,21 @@ export function QueryProvider({ children }) {
 				});
 		}
 	}, [dictionaries, groupings, nameActiveGroup, searchTerm, sizeSuggestion]);
+	
+
+	const forgetting=async function(frequency){
+		const res=await fetch(`${API_PREFIX}/forgetting/${frequency}`)
+		const data=await loadJson(res);
+		console.log(data.words);
+		return data.words;
+
+	}
+	const setQuery=(word)=>{
+		console.log("setQuery"+word)
+		search(word)	
+	}
+
+
 
 	const search = useCallback(function (newSearch, articleName) {
 		if (newSearch.length === 0) {
@@ -215,7 +230,9 @@ export function QueryProvider({ children }) {
 				showingArticle,
 				setShowingArticleView,
 				queryContentRef,
-				search
+				search,
+				forgetting,
+				setQuery,
 			}}
 		>
 			{children}

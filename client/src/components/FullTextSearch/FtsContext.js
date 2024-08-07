@@ -39,7 +39,7 @@ export function FtsProvider({ children }) {
 				}
 			}
 		}
-		document.addEventListener('click', listener);
+		//document.addEventListener('click', listener);
 		return () => document.removeEventListener('click', listener);
 	}, []);
 

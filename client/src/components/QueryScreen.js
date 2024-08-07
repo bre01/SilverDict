@@ -34,6 +34,7 @@ export default function QueryScreen() {
 							<ArticleView />
 						</Box>
 						<DictionariesPane />
+						
 					</Stack>
 				</Stack>
 			</QueryProvider>

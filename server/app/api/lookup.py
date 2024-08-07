@@ -3,6 +3,7 @@ import time
 from . import api
 from .. import db_manager
 from ..dictionaries import simplify
+#from ..custom_history import put_word
 
 
 @api.route('/suggestions/<group_name>/<path:key>')
@@ -17,6 +18,19 @@ def suggestions(group_name: str, key: str) -> Response:
 			'timestamp': timestamp_suggestions_requested,
 			'suggestions': suggestions
 		})
+	return response
+
+
+
+@api.route('/forgetting/<path:key>')
+def forgetting(key:int)->Response:
+	dicts = current_app.extensions['dictionaries']
+	words=dicts.forgetting(key);
+	response=jsonify(
+		{
+			'words':words,
+		}
+	)
 	return response
 
 
@@ -38,6 +52,7 @@ def query(group_name: str, key: str) -> Response:
 						'dictionaries': [article[0] for article in articles]
 					}
 				)
+				#put_word(key)
 			else:  # used without the web interface
 				articles_html = render_template('articles_standalone.html', key=key, articles=articles)
 				response = make_response(articles_html)

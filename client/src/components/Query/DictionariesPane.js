@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Dictionaries from './Dictionaries';
+import Forgettings from './Forgettings.js';
 
 export default function DictionariesPane() {
 	return (
@@ -13,6 +14,7 @@ export default function DictionariesPane() {
 			padding='0.5em'
 		>
 			<Dictionaries />
+			<Forgettings/>
 		</Box>
 	);
 }

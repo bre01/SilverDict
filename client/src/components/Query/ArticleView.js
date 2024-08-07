@@ -133,26 +133,8 @@ export default function ArticleView() {
 				// I can't style <audio> elements to make them narrower
 				ref={articleViewRef}
 			/>
-			<Menu
-				open={contextMenu !== null}
-				onClose={() => setContextMenu(null)}
-				anchorReference='anchorPosition'
-				anchorPosition={
-					contextMenu !== null
-						? { top: contextMenu.mouseY, left: contextMenu.mouseX }
-						: undefined
-				}
-			>
-				<MenuItem onClick={handleSearchInNewTab}>
-					{localisedStrings['article-view-menu-search-in-new-tab']}
-				</MenuItem>
-				<MenuItem onClick={handleSearch}>
-					{localisedStrings['article-view-menu-search-in-this-tab']}
-				</MenuItem>
-				<MenuItem onClick={handleSetAsSearchTerm}>
-					{localisedStrings['article-view-menu-set-as-search-term']}
-				</MenuItem>
-			</Menu>
+
+
 		</>
 	);
 }
